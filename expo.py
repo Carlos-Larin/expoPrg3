@@ -3,27 +3,22 @@ import os
 
 #función del bob constructor
 def tilin():
-    """
-    #verificar si la carpeta "imagenes" existe 
-    if not os.path.exists("imagenes"):
-        os.makedirs("imagenes")
-    """
 
     #cargar la imagen
-    imagen = Image.open("imagenes/XD.jpg")
+    imagen = Image.open("imagenes/arthur.jpg")
     
     #invertir colores
     imageninvertida = ImageChops.invert(imagen)
-    imageninvertida.save("imagenes/XD_colores.jpg")
+    imageninvertida.save("imagenes/arthur_colores.jpg")
     
     #resaltar luces (aumentar brillo)
     enhancer = ImageEnhance.Brightness(imagen)
     imagen = enhancer.enhance(1.5)  # Aumentar brillo en un 50%
-    imagen.save("imagenes/XD_luces.jpg")
+    imagen.save("imagenes/arthur_luces.jpg")
 
     #crear un efecto espejo
     cloveEspejo = ImageOps.mirror(imagen)
-    cloveEspejo.save("imagenes/XD_espejo.jpg")
+    cloveEspejo.save("imagenes/arthur_espejo.jpg")
 
     #agregar texto a la imagen original
     draw = ImageDraw.Draw(imagen)
@@ -34,8 +29,8 @@ def tilin():
     except IOError:
         font = ImageFont.load_default()  #usar la fuente predeterminada si no se encuentra la fuente "arial.ttf"
     
-    draw.text((100, 100), "¡No pikees mid!", fill="white", font=font)  #agregar texto con la fuente cargada
-    imagen.save("imagenes/XD_letras.jpg")
+    draw.text((100, 100), "¡tengo miedo!", fill="white", font=font)  #agregar texto con la fuente cargada
+    imagen.save("imagenes/arthur_letras.jpg")
 
 #aqui lanzamos el codigo inzano
 if __name__ == "__main__":
